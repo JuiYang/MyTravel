@@ -10,9 +10,14 @@ import './assets/styles/border.css'
 import fastClick from 'fastclick'
 // 引入iconfont
 import './assets/styles/iconfont.css'
+// 引入awesome-swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// require styles
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({

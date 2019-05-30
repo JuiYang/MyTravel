@@ -4,8 +4,8 @@
       <div class="iconfont back-icon">&#xe624;</div>
     </div>
     <div class="header-input">
-      <span class="iconfont">&#xe632;</span>
-      景点/游玩/主题</div>
+      <span class="iconfont input-icon">&#xe632;</span>
+      输入城市/景点/游玩主题</div>
     <div class="header-right">
       城市
       <span class="iconfont arrow-icon">&#xe6aa;</span>
@@ -24,7 +24,7 @@ export default {
   @import '../../../assets/styles/variables.styl'
   .header
     display: flex
-    line-height: .86rem
+    line-height: .56rem
     background: $bgColor
     color: #fff
     .header-left
@@ -38,11 +38,10 @@ export default {
       flex: 1
       margin-top: .12rem
       margin-bottom: .12rem
-      margin-left: .30rem
+      margin-left: .20rem
       background: #fff
       border-radius: .1rem
       color: #ccc
-      padding-left: .2rem
     .header-right
       width: 1.24rem
       float: right
