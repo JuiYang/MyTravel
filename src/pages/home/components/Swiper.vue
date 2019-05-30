@@ -19,7 +19,11 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         // 支持循环轮播
-        loop: true
+        loop: true,
+        // 自动播放时间
+        autoplay: 3000,
+        // 播放的速度
+        speed: 300
       },
       swiperList: [{
         id: '0001',
