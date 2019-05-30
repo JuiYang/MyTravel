@@ -50,10 +50,6 @@ export default {
         id: '0008',
         imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
         imgName: '兵马俑'
-      }, {
-        id: '0009',
-        imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-        imgName: '植物园'
       }]
     }
   },

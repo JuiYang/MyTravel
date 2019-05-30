@@ -62,26 +62,26 @@ export default {
         height 1.86rem
         background #fff
         .item-img
-            width 1.7rem
-            height 1.7rem
-            padding .1rem
+          width 1.7rem
+          height 1.7rem
+          padding .1rem
         .item-info
             flex 1
             overflow hidden
             padding .1rem
             padding-left .18rem
             .item-title
-                line-height .54rem
-                font-size .32rem
-                ellipsis()
+              line-height .54rem
+              font-size .32rem
+              ellipsis()
             .item-desc
-                line-height .4rem
-                color #ccc
-                ellipsis()
+              line-height .4rem
+              color #ccc
+              ellipsis()
             .item-detail
-                background #ff9300
-                border-radius .06rem
-                color #fff
-                margin-top .1rem
-                padding 0 .1rem
+              background #ff9300
+              border-radius .06rem
+              color #fff
+              margin-top .1rem
+              padding 0 .1rem
 </style>
