@@ -2,7 +2,7 @@
   <div>
       <div class="recommend-title">热销推荐</div>
       <ul>
-          <li class="recommend-item border-bottom" v-for="item of recommendLists" :key="item.id">
+          <li class="recommend-item border-bottom" v-for="item of recommendList" :key="item.id">
             <!-- <div class="item-img-wrapper"> -->
             <img class="item-img" :src='item.imgUrl'/>
             <!-- </div> -->
@@ -19,29 +19,32 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendList: Array
+  },
   data () {
     return {
-      recommendLists: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
-        imgTitle: '华清宫',
-        imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
-        imgTitle: '华清宫',
-        imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
-        imgTitle: '华清宫',
-        imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
-        imgTitle: '华清宫',
-        imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
-      }]
+      // recommendList: [{
+      //   id: '0001',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
+      //   imgTitle: '华清宫',
+      //   imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
+      // }, {
+      //   id: '0002',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
+      //   imgTitle: '华清宫',
+      //   imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
+      // }, {
+      //   id: '0003',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
+      //   imgTitle: '华清宫',
+      //   imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
+      // }, {
+      //   id: '0004',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1903/b6/b6255aaa6dd79ac6a3.img.jpg_200x200_f54c65bd.jpg',
+      //   imgTitle: '华清宫',
+      //   imgDesc: '华清宫是唐代封建帝王游幸的别宫。'
+      // }]
     }
   },
   components: {

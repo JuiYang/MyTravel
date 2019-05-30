@@ -10,10 +10,6 @@ export default new Router({
       path: '/',
       name: 'HomeSite',
       component: HomeSite
-    }, {
-      path: '/homeSite',
-      name: 'HomeSite',
-      component: HomeSite
     }
   ]
 })
