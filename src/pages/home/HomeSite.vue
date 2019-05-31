@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-      city: '',
+      city: '西安',
       swiperList: [],
       iconsList: [],
       recommendList: [],
