@@ -58,7 +58,8 @@ export default {
     .recommend-title
         line-height .8rem
         background #eee
-        text-indent -5.2rem
+        padding-left: .2rem
+        text-align: left
     .recommend-item
         overflow hidden
         display flex

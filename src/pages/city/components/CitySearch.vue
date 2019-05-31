@@ -26,5 +26,6 @@ export default {
       width: 100%
       color: #666
       border-radius: .1rem
-      text-align: center
+      padding-left: .2rem
+      text-align: left
 </style>

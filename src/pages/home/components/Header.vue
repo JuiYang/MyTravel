@@ -48,6 +48,8 @@ export default {
       background: #fff
       border-radius: .1rem
       color: #ccc
+      text-align: left
+      padding-left: .2rem
     .header-right
       width: 1.24rem
       float: right
