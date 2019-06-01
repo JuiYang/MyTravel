@@ -13,10 +13,10 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div>
-            <div class="button-wraper">
-              <div class="button">西安</div>
+            <div class="button-wraper" v-for="item of hotCity" :key="item.id">
+              <div class="button">{{item.name}}</div>
             </div>
-            <div class="button-wraper">
+            <!-- <div class="button-wraper">
               <div class="button">北京</div>
             </div>
             <div class="button-wraper">
@@ -30,53 +30,14 @@
             </div>
             <div class="button-wraper">
               <div class="button">桂林</div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
-      <div class="chooseCity">
-        <div class="title border-topbottom">A</div>
-        <div class="item-list">
-          <div class="item border-bottom">西安</div>
-          <div class="item border-bottom">咸阳</div>
-          <div class="item border-bottom">渭南</div>
-          <div class="item border-bottom">铜川</div>
-          <div class="item border-bottom">宝鸡</div>
-          <div class="item border-bottom">榆林</div>
-          <div class="item border-bottom">杨凌</div>
-          <div class="item border-bottom">安康</div>
-          <div class="item border-bottom">商洛</div>
-          <div class="item border-bottom">汉中</div>
-        </div>
-      </div>
-      <div class="chooseCity">
-        <div class="title border-topbottom">B</div>
-        <div class="item-list">
-          <div class="item border-bottom">西安</div>
-          <div class="item border-bottom">咸阳</div>
-          <div class="item border-bottom">渭南</div>
-          <div class="item border-bottom">铜川</div>
-          <div class="item border-bottom">宝鸡</div>
-          <div class="item border-bottom">榆林</div>
-          <div class="item border-bottom">杨凌</div>
-          <div class="item border-bottom">安康</div>
-          <div class="item border-bottom">商洛</div>
-          <div class="item border-bottom">汉中</div>
-        </div>
-      </div>
-      <div class="chooseCity">
-        <div class="title border-topbottom">C</div>
-        <div class="item-list">
-          <div class="item border-bottom">西安</div>
-          <div class="item border-bottom">咸阳</div>
-          <div class="item border-bottom">渭南</div>
-          <div class="item border-bottom">铜川</div>
-          <div class="item border-bottom">宝鸡</div>
-          <div class="item border-bottom">榆林</div>
-          <div class="item border-bottom">杨凌</div>
-          <div class="item border-bottom">安康</div>
-          <div class="item border-bottom">商洛</div>
-          <div class="item border-bottom">汉中</div>
+      <div class="chooseCity" v-for="(items, key) of cities" :key="key">
+        <div class="title border-topbottom">{{key}}</div>
+        <div class="item-list" v-for="item of items" :key="item.id">
+          <div class="item border-bottom">{{item.name}}</div>
         </div>
       </div>
     </div>
@@ -87,6 +48,10 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hotCity: Array,
+    cities: Object
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
   },
