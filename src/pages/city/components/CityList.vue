@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wraper">
-            <div class="button">西安</div>
+            <div class="button">{{this.currentCity}}</div>
           </div>
         </div>
       </div>
@@ -13,7 +13,10 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div>
-            <div class="button-wraper" v-for="item of hotCity" :key="item.id">
+            <div class="button-wraper"
+            v-for="item of hotCity"
+            :key="item.id"
+            @click="handleCityClick(item.name)">
               <div class="button">{{item.name}}</div>
             </div>
             <!-- <div class="button-wraper">
@@ -36,7 +39,8 @@
       </div>
       <div class="chooseCity" v-for="(items, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="item of items" :key="item.id">
+        <div class="item-list" v-for="item of items" :key="item.id"
+        @click="handleCityClick(item.name)">
           <div class="item border-bottom">{{item.name}}</div>
         </div>
       </div>
@@ -46,6 +50,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -53,8 +58,18 @@ export default {
     cities: Object,
     letter: String
   },
-  mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper)
+  methods: {
+    handleCityClick (city) {
+      // this.$store.dispatch('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
   },
   components: {
   },
@@ -65,8 +80,12 @@ export default {
         const element = this.$refs[this.letter][0]
         this.scroll.scrollToElement(element)
       }
-      console.log(this.letter)
     }
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      click: true
+    })
   }
 }
 </script>

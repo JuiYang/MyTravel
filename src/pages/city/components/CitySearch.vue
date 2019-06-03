@@ -1,10 +1,11 @@
 <template>
   <div>
     <div class="city-search">
-        <input v-model="keyWord" class="search-input" type="text" placeholder="请输入城市或拼音"/>
-        <div class="search-content" v-show="keyWord">
+        <input v-model="keyWord" class="search-input" type="text" placeholder="请输入城市或拼音">
+        <div class="search-content" v-show="keyWord" ref="search">
           <ul>
-            <li class="search-item border-bottom" v-for="item of list" :key="item">{{item.name}}</li>
+            <li class="search-item border-bottom" v-for="item of list" :key="item"
+            @click="handleCityClick(item.name)">{{item.name}}</li>
             <li class="search-item border-bottom" v-show="notFindData">没有找到对应数据</li>
           </ul>
         </div>
@@ -14,6 +15,8 @@
 
 <script>
 import { clearTimeout, setTimeout } from 'timers'
+import BScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   data () {
@@ -31,9 +34,16 @@ export default {
       return !this.list.length
     }
   },
+  methods: {
+    handleCityClick (city) {
+      // this.$store.dispatch('changeCity', city)
+      this.changeCity(city)
+      this.keyWord = this.$store.state.city
+    },
+    ...mapMutations(['changeCity'])
+  },
   watch: {
     keyWord () {
-      console.log('index..')
       if (this.timer) {
         clearTimeout(this.timer)
       }
@@ -43,10 +53,8 @@ export default {
       }
       this.timer = setTimeout(() => {
         const result = []
-        console.log(this.cities)
         for (let i in this.cities) {
           this.cities[i].forEach(value => {
-            console.log(value.spell)
             if (value.spell.indexOf(this.keyWord) > -1 ||
             value.name.indexOf(this.keyWord) > -1) {
               result.push(value)
@@ -54,11 +62,15 @@ export default {
           })
         }
         this.list = result
-        console.log(result)
       }, 100)
     }
   },
   components: {
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.search, {
+      click: true
+    })
   }
 }
 </script>

@@ -26,7 +26,7 @@ export default {
   },
   data () {
     return {
-      city: '西安',
+      // city: '西安',
       swiperList: [],
       iconsList: [],
       recommendList: [],
@@ -41,7 +41,7 @@ export default {
     getHomeInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
-        this.city = res.data.city
+        // this.city = res.data.city
         this.swiperList = res.data.swiperList
         this.iconsList = res.data.iconsList
         this.recommendList = res.data.recommendList
