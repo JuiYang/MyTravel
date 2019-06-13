@@ -1,18 +1,23 @@
 <template>
   <div>
-      <div class="recommend-title">热销推荐</div>
-      <ul>
-          <li class="recommend-item border-bottom" v-for="item of recommendList" :key="item.id">
-            <!-- <div class="item-img-wrapper"> -->
-            <img class="item-img" :src='item.imgUrl'/>
-            <!-- </div> -->
-            <div class="item-info">
-                <p class="item-title">{{item.imgTitle}}</p>
-                <p class="item-desc">{{item.imgDesc}}</p>
-                <button class="item-detail">查看详情</button>
-            </div>
-          </li>
-      </ul>
+    <div class="recommend-title">热销推荐</div>
+    <ul>
+      <router-link
+        tag="li"
+        class="recommend-item border-bottom"
+        v-for="item of recommendList"
+        :key="item.id"
+        :to="'/detail/' + item.id">
+        <!-- <div class="item-img-wrapper"> -->
+        <img class="item-img" :src='item.imgUrl'/>
+        <!-- </div> -->
+        <div class="item-info">
+            <p class="item-title">{{item.imgTitle}}</p>
+            <p class="item-desc">{{item.imgDesc}}</p>
+            <button class="item-detail">查看详情</button>
+        </div>
+      </router-link>
+    </ul>
   </div>
 </template>
 
@@ -78,10 +83,12 @@ export default {
               line-height .54rem
               font-size .32rem
               ellipsis()
+              text-align: left
             .item-desc
               line-height .4rem
               color #ccc
               ellipsis()
+              text-align: left
             .item-detail
               background #ff9300
               border-radius .06rem
