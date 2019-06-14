@@ -3,8 +3,8 @@
     <div class="wrapper">
         <swiper :options="swiperOption">
             <!-- slides -->
-            <swiper-slide v-for="item of swiperList" :key="item.id">
-                <img class="gallary-image" :src='item.imgUrl'/>
+            <swiper-slide v-for="(item, index) in swiperList" :key="index">
+                <img class="gallary-image" :src='item'/>
             </swiper-slide>
             <!-- Optional controls -->
             <div class="swiper-pagination"  slot="pagination"></div>
@@ -19,6 +19,14 @@ export default {
   // props: {
   //   swiperList: Array
   // },
+  props: {
+    swiperList: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
   data () {
     return {
       swiperOption: {
@@ -34,14 +42,14 @@ export default {
         // 解决swiper图片宽度计算问题, swiper监听dom结构发生变化时会自动刷新页面
         observeParents: true,
         observer: true
-      },
-      swiperList: [{
-        id: '001',
-        imgUrl: 'https://img1.qunarzz.com/travel/d2/1506/cb/2287edee229ebb.jpg'
-      }, {
-        id: '002',
-        imgUrl: 'https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/9001870e87c71627527bab14e6cf651b.jpg'
-      }]
+      }
+      // swiperList: [{
+      //   id: '001',
+      //   imgUrl: 'https://img1.qunarzz.com/travel/d2/1506/cb/2287edee229ebb.jpg'
+      // }, {
+      //   id: '002',
+      //   imgUrl: 'https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/9001870e87c71627527bab14e6cf651b.jpg'
+      // }]
     }
   },
   methods: {

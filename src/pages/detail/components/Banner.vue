@@ -2,18 +2,19 @@
   <div>
     <div class="banner" @click="handleBannerClick">
       <img class="banner-img"
-        src="https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/825d10452fe6890dd9b8ac1d294b44df.jpg"/>
+        :src="bannerImg"/>
       <div class="banner-info">
         <div class="banner-title">
-          <p>古巴与生俱来的浪漫与激情</p>
+          <p>{{sightName}}</p>
         </div>
         <div class="banner-number">
           <span class="iconfont">&#xe63e;</span>
-            39
+            {{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
     <common-gallary
+      :swiperList="gallaryImgs"
       v-show="showGallary"
       @close="handleGallaryClose"
     ></common-gallary>
@@ -28,8 +29,14 @@ export default {
   components: {
     CommonGallary: CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   methods: {
     handleBannerClick () {
+      console.log(this.gallaryImgs)
       this.showGallary = true
     },
     handleGallaryClose () {
@@ -39,6 +46,13 @@ export default {
   data () {
     return {
       showGallary: false
+      // gallaryImgs: [{
+      //   id: '001',
+      //   imgUrl: 'https://img1.qunarzz.com/travel/d2/1506/cb/2287edee229ebb.jpg'
+      // }, {
+      //   id: '002',
+      //   imgUrl: 'https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/9001870e87c71627527bab14e6cf651b.jpg'
+      // }]
     }
   }
 }

@@ -21,5 +21,9 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  // 滚动行为： 每次刷新页面，都从顶部加载
+  scrollBehavior (to, from, savedPositon) {
+    return {x: 0, y: 0}
+  }
 })

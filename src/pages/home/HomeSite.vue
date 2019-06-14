@@ -63,6 +63,7 @@ export default {
     this.lastCity = this.city
     this.getHomeInfo()
   },
+  // 解决缓存问题
   activated () {
     if (this.lastCity !== this.city) {
       this.lastCity = this.city
