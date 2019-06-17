@@ -39,6 +39,7 @@ export default {
       // this.$store.dispatch('changeCity', city)
       this.changeCity(city)
       this.keyWord = this.$store.state.city
+      this.$router.push('/')
     },
     ...mapMutations(['changeCity'])
   },

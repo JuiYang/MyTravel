@@ -100,4 +100,5 @@ export default {
       line-height: .3rem
       text-align: center
       color: $bgColor
+      font-size: large
 </style>
